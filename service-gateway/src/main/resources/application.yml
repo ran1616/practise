@@ -1,0 +1,15 @@
+server:
+  port: 80
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+      routes:
+        - id: service-product
+          uri: lb://service-product
+          predicates: # 断言  ----> 判断语言
+            - Path=/admin/product/**

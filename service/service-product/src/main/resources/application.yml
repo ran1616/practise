@@ -1,0 +1,22 @@
+# 配置服务端口号
+server:
+  port: 10100
+
+# 配置数据库的连接信息
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://192.168.136.145:3306/gmall_product?useSSL=false&characterEncoding=UTF8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 1234
+  zipkin:
+    base-url: http://192.168.136.145:9411
+
+
+# mybatis plus的相关配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.atguigu.gmall.product.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
