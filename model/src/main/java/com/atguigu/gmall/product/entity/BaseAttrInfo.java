@@ -9,7 +9,7 @@ import lombok.Data;
 
 /**
  * 属性表
- * @TableName base_attr_info
+ * @TableName base_attr_info  234324324
  */
 @TableName(value ="base_attr_info")
 @Data
