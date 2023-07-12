@@ -15,4 +15,35 @@
         id,attr_name,category_id,
         category_level
     </sql>
+
+    <resultMap id="BASE_RESULT_MAP_ATTR_INFO_VALUE" type="com.atguigu.gmall.product.entity.BaseAttrInfo" autoMapping="true">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+<!--        <result property="attrName" column="attr_name" jdbcType="VARCHAR"/>-->
+<!--        <result property="categoryId" column="category_id" jdbcType="BIGINT"/>-->
+<!--        <result property="categoryLevel" column="category_level" jdbcType="INTEGER"/>-->
+        <collection property="attrValueList" ofType="com.atguigu.gmall.product.entity.BaseAttrValue" autoMapping="true">
+            <id property="id" column="bavId" jdbcType="BIGINT"/>
+<!--            <result property="valueName" column="value_name"></result>-->
+<!--            <result property="attrId" column="attr_id" ></result>-->
+        </collection>
+    </resultMap>
+
+    <select id="findBaseAttrInfo" resultMap="BASE_RESULT_MAP_ATTR_INFO_VALUE">
+        select bai.id , bai.attr_name , bai.category_id , bai.category_level ,
+               bav.id bavId , bav.value_name , bav.attr_id
+        from base_attr_info bai
+                 LEFT JOIN base_attr_value bav on bav.attr_id = bai.id
+        <where>
+            <if test="c1Id != 0">
+                (bai.category_id = #{c1Id} and bai.category_level = 1 )
+            </if>
+            <if test="c2Id != 0">
+                or (bai.category_id = #{c2Id} and bai.category_level = 2 )
+            </if>
+            <if test="c3Id != 0">
+                or (bai.category_id = #{c3Id} and bai.category_level = 3 )
+            </if>
+        </where>
+    </select>
+
 </mapper>

@@ -1,6 +1,8 @@
 package com.atguigu.gmall.product.service;
 
+import com.atguigu.gmall.product.dto.SpuInfoDto;
 import com.atguigu.gmall.product.entity.SpuInfo;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -10,4 +12,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface SpuInfoService extends IService<SpuInfo> {
 
+    public abstract Page findByPage(Integer pageNo, Integer pageSize , Long category3Id);
+
+    public abstract void saveSpuInfo(SpuInfoDto spuInfoDto);
 }

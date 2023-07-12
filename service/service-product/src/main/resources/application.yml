@@ -20,3 +20,12 @@ mybatis-plus:
   type-aliases-package: com.atguigu.gmall.product.entity
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+# 定义minio所需要的配置信息
+gmall:
+  minio:
+    endpoint: http://192.168.136.145:9000
+    accessKey: admin
+    secretKey: admin123456
+    bucket: gmall

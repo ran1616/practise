@@ -4,15 +4,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.gmall.product.mapper.SpuSaleAttrMapper">
 
-    <resultMap id="BaseResultMap" type="com.atguigu.gmall.product.entity.SpuSaleAttr">
+    <resultMap id="BaseResultMap" type="com.atguigu.gmall.product.entity.SpuSaleAttr" autoMapping="true">
             <id property="id" column="id" jdbcType="BIGINT"/>
-            <result property="spuId" column="spu_id" jdbcType="BIGINT"/>
-            <result property="baseSaleAttrId" column="base_sale_attr_id" jdbcType="BIGINT"/>
-            <result property="saleAttrName" column="sale_attr_name" jdbcType="VARCHAR"/>
+<!--            <result property="spuId" column="spu_id" jdbcType="BIGINT"/>-->
+<!--            <result property="baseSaleAttrId" column="base_sale_attr_id" jdbcType="BIGINT"/>-->
+<!--            <result property="saleAttrName" column="sale_attr_name" jdbcType="VARCHAR"/>-->
+        <collection property="spuSaleAttrValueList" ofType="com.atguigu.gmall.product.entity.SpuSaleAttrValue" autoMapping="true">
+            <id property="id" column="ssavId"/>
+        </collection>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,spu_id,base_sale_attr_id,
         sale_attr_name
     </sql>
+
+    <select id="findBySpuId" resultMap="BaseResultMap">
+        select ssa.id , ssa.spu_id , ssa.base_sale_attr_id , ssa.sale_attr_name ,
+               ssav.id ssavId , ssav.sale_attr_value_name
+        from spu_sale_attr ssa LEFT JOIN spu_sale_attr_value ssav on ssav.spu_id = ssa.spu_id
+            and ssav.base_sale_attr_id = ssa.base_sale_attr_id
+        where ssa.spu_id = #{spuId} ;
+    </select>
 </mapper>

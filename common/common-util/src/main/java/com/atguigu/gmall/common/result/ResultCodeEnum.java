@@ -28,6 +28,10 @@ public enum ResultCodeEnum {
     SECKILL_ORDER_SUCCESS(218, "下单成功"),
     COUPON_GET(220, "优惠券已经领取"),
     COUPON_LIMIT_GET(221, "优惠券已发放完毕"),
+
+    ERROR_SPU_REF(311, "被SPU所引用"),
+    ERROR_SKU_REF(312, "被SKU所引用"),
+    SYS_ERROR(9999, "您的网络有问题，请稍后重试！")
     ;
 
     private Integer code;
