@@ -4,15 +4,20 @@ server:
 
 # 配置数据库的连接信息
 spring:
-  datasource:
-    type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://192.168.136.145:3306/gmall_product?useSSL=false&characterEncoding=UTF8
-    driver-class-name: com.mysql.jdbc.Driver
-    username: root
+  profiles:
+    include: shardingsphere
+  redis:
+    host: 192.168.136.145
+    port: 6379
     password: 1234
-  zipkin:
-    base-url: http://192.168.136.145:9411
+#  datasource:
+#    type: com.zaxxer.hikari.HikariDataSource
+#    url: jdbc:mysql://192.168.136.145:3306/gmall_product?useSSL=false&characterEncoding=UTF8
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: root
+#    password: 1234
 
+# 配置Redis的连接信息
 
 # mybatis plus的相关配置
 mybatis-plus:
@@ -29,3 +34,8 @@ gmall:
     accessKey: admin
     secretKey: admin123456
     bucket: gmall
+
+# 配置日志文件的路径
+logging:
+  file:
+    name: D://logs/service-product/info.log

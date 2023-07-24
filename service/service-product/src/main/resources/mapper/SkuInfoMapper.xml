@@ -23,4 +23,18 @@
         tm_id,category3_id,sku_default_img,
         is_sale
     </sql>
+    
+    <resultMap id="RESUL_MAP_SKU_INFO_IMAGE" type="com.atguigu.gmall.product.entity.SkuInfo" autoMapping="true">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <collection property="skuImageList" ofType="com.atguigu.gmall.product.entity.SkuImage" autoMapping="true">
+            <id property="id" column="imId"></id>
+        </collection>
+    </resultMap>
+
+    <select id="findSkuInfoAndImageBySkuId" resultMap="RESUL_MAP_SKU_INFO_IMAGE">
+        select si.* , im.id imId , im.sku_id , im.img_name , im.img_url , im.spu_img_id , im.is_default from sku_info si
+            LEFT JOIN sku_image im on im.sku_id = si.id
+        where si.id = #{skuId}
+    </select>
+    
 </mapper>

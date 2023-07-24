@@ -15,4 +15,8 @@ public interface SkuInfoService extends IService<SkuInfo> {
     public abstract Page findByPage(Integer pageNo, Integer pageSize);
 
     public abstract  void saveSkuInfo(SkuInfoDto skuInfoDto);
+
+    public abstract  void onSale(Long skuId);
+
+    public abstract void cancelSale(Long skuId);
 }

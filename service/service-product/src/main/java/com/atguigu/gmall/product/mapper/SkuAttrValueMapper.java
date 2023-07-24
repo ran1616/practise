@@ -1,7 +1,10 @@
 package com.atguigu.gmall.product.mapper;
 
 import com.atguigu.gmall.product.entity.SkuAttrValue;
+import com.atguigu.gmall.search.entity.SearchAttr;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import java.util.List;
 
 /**
 * @author Administrator
@@ -10,6 +13,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @Entity com.atguigu.gmall.product.entity.SkuAttrValue
 */
 public interface SkuAttrValueMapper extends BaseMapper<SkuAttrValue> {
+
+    public abstract List<SearchAttr> findSearchAttrBySkuId(Long skuId) ;
 
 }
 

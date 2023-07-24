@@ -1,0 +1,16 @@
+# 配置服务端口号
+server:
+  port: 10300
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  redis:
+    host: 192.168.136.145
+    port: 6379
+    password: 1234
+
+logging:
+  file:
+    name: D://logs/service-item/info.log
+

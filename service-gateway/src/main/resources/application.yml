@@ -14,3 +14,11 @@ spring:
           uri: lb://service-product
           predicates: # 断言  ----> 判断语言
             - Path=/admin/product/**
+        - id: service-item
+          uri: lb://service-item
+          predicates: # 断言  ----> 判断语言
+            - Path=/hello/count
+        - id: web-all
+          uri: lb://web-all
+          predicates: # 断言  ----> 判断语言
+            - Host=**.gmall.com,gmall.com

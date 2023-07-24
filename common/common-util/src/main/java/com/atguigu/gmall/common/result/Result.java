@@ -10,7 +10,6 @@ import java.util.Hashtable;
 
 /**
  * 全局统一返回结果类
- *
  */
 @Data
 @ApiModel(value = "全局统一返回结果")

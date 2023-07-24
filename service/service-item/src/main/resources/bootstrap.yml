@@ -1,0 +1,13 @@
+# 配置服务名称
+spring:
+  application:
+    name: service-item
+  cloud:
+    nacos:
+      server-addr: 192.168.136.145:8848
+      config:
+        shared-configs:
+          - common.yml
+        file-extension: yaml
+  profiles:
+    active: dev

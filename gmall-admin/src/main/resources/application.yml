@@ -1,0 +1,39 @@
+server:
+  port: 20100
+
+# 配置nacos的相关信息
+spring:
+  application:
+    name: gmall-admin
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.136.145:8848
+        username: nacos
+        password: nacos
+
+# 配置邮件的相关信息
+  mail:
+    host: smtp.163.com
+    port: 465
+    username: hly_atguigu@163.com
+    password: QJDYTAIWSWSSQMAA
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:   # 使用 SSL 安全协议，须如下配置
+            enable: true
+            required: true
+    protocol: smtps   # 465端口使用的通讯协议为smtps
+  boot:
+    admin:
+      notify:
+        mail:
+          to: hly_atguigu@163.com
+          from: hly_atguigu@163.com
+          enabled: true
+        filter:
+          health-status: DOWN        # 邮件通知策略，当微服务下线的时候发送通知邮件
+      monitor:
+        default-timeout: 30000

@@ -14,6 +14,8 @@
     <modules>
         <module>common-util</module>
         <module>common-service</module>
+        <module>common-feign</module>
+        <module>common-cache</module>
     </modules>
 
     <properties>

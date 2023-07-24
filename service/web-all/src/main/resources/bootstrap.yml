@@ -1,0 +1,10 @@
+# 配置服务名称
+spring:
+  application:
+    name: web-all
+  cloud:
+    nacos:
+      server-addr: 192.168.136.145:8848
+      config:
+        shared-configs:
+          - common.yml

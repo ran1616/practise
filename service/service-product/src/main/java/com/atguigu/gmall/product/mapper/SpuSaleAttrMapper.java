@@ -15,6 +15,7 @@ public interface SpuSaleAttrMapper extends BaseMapper<SpuSaleAttr> {
 
     public abstract List<SpuSaleAttr> findBySpuId(Long spuId);
 
+    public abstract List<SpuSaleAttr> findSpuSalAttrBySkuId(Long skuId);
 }
 
 

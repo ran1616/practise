@@ -27,4 +27,16 @@ public class SkuInfoController {
         return Result.ok() ;
     }
 
+    @GetMapping(value = "/onSale/{skuId}")
+    public Result onSale(@PathVariable(value = "skuId") Long skuId) {
+        skuInfoService.onSale(skuId) ;
+        return Result.ok() ;
+    }
+
+    @GetMapping(value = "/cancelSale/{skuId}")
+    public Result cancelSale(@PathVariable(value = "skuId") Long skuId) {
+        skuInfoService.cancelSale(skuId) ;
+        return Result.ok() ;
+    }
+
 }

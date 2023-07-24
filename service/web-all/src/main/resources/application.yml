@@ -1,0 +1,26 @@
+# 配置服务端口号
+server:
+  port: 10200
+
+# 配置数据库的连接信息
+spring:
+  # 配置thymeleaf相关信息
+  thymeleaf:
+    suffix: .html
+    prefix: classpath:/templates/
+  main:
+    allow-bean-definition-overriding: true
+
+# 配置feign的超时时间
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 1000
+        readTimeout: 1000
+  sentinel:
+    enabled: true
+
+logging:
+  file:
+    name: D://logs/web-all/info.log

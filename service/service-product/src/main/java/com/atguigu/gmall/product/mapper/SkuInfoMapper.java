@@ -11,6 +11,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface SkuInfoMapper extends BaseMapper<SkuInfo> {
 
+    public abstract SkuInfo findSkuInfoAndImageBySkuId(Long skuId);
+
 }
 
 
