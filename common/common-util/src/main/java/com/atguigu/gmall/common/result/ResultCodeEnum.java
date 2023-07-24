@@ -32,7 +32,8 @@ public enum ResultCodeEnum {
     ERROR_SPU_REF(311, "被SPU所引用"),
     ERROR_SKU_REF(312, "被SKU所引用"),
     SYS_ERROR(9999, "您的网络有问题，请稍后重试！") ,
-    REDIS_DATA_ERROR(412 , "请通过正常途径进行访问")
+    REDIS_DATA_ERROR(412 , "请通过正常途径进行访问") ,
+    LOGIN_ERROR(433 , "用户名或者密码错误!")
     ;
 
     private Integer code;

@@ -32,4 +32,14 @@ public interface GmallConstant {
      */
     public static final String REDIS_SKUID_BLOOM_FILTER_NEW = "skuId-bloom-filter-new" ;
 
+    /**
+     * 商品热度分前缀
+     */
+    public static final String REDIS_SKU_HOT_SCORE_PRE = "sku-hotscore:" ;
+
+    /**
+     * 存储到Redis中的登录用户的键
+     */
+    public static final String REDIS_USER_LOGIN_PRE = "user-login-token:" ;
+
 }

@@ -5,6 +5,7 @@ import com.atguigu.gmall.common.cache.anno.GmallCache;
 import com.atguigu.gmall.common.cache.service.RedisCacheService;
 import com.atguigu.gmall.common.constant.GmallConstant;
 import com.atguigu.gmall.common.feign.product.SkuFeignClient;
+import com.atguigu.gmall.common.feign.seach.SearchFeignClient;
 import com.atguigu.gmall.common.properties.ThreadPoolProperties;
 import com.atguigu.gmall.common.result.Result;
 import com.atguigu.gmall.item.biz.SkuDetailBizService;
@@ -39,6 +40,9 @@ public class SkuDetailBizServiceImpl implements SkuDetailBizService {
 
     @Autowired
     private RedisTemplate<String , String> redisTemplate ;
+
+    @Autowired
+    private SearchFeignClient searchFeignClient ;
 
     private ReentrantLock reentrantLock = new ReentrantLock() ;
 
@@ -84,6 +88,14 @@ public class SkuDetailBizServiceImpl implements SkuDetailBizService {
     public SkuDetailVo item(Long skuId) {
         Result<SkuDetailVo> detailVoResult = skuFeignClient.findSkuDetailVo(skuId);// 远程调用findSkuDetailVoFromRpc方法
         return detailVoResult.getData() ;
+    }
+
+    @Override
+    public void updateHotScore(Long skuId) {
+        Long increment = redisTemplate.opsForValue().increment(GmallConstant.REDIS_SKU_HOT_SCORE_PRE + skuId);
+        if(increment % 5 == 0) {
+            searchFeignClient.updateHotScore(skuId , increment) ;
+        }
     }
 
     public SkuDetailVo itemRedissonClient(Long skuId) {

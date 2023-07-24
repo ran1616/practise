@@ -1,0 +1,29 @@
+# 配置服务端口号
+server:
+  port: 10600
+
+# 配置数据库的连接信息
+spring:
+  # 配置Redis的连接信息
+  redis:
+    host: 192.168.136.145
+    port: 6379
+    password: 1234
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://192.168.136.145:3306/gmall_user?useSSL=false&characterEncoding=UTF8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 1234
+
+# mybatis plus的相关配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.atguigu.gmall.user.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 配置日志文件的路径
+logging:
+  file:
+    name: D://logs/service-user/info.log

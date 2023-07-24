@@ -18,6 +18,10 @@ spring:
           uri: lb://service-item
           predicates: # 断言  ----> 判断语言
             - Path=/hello/count
+        - id: service-user
+          uri: lb://service-user
+          predicates: # 断言  ----> 判断语言
+            - Path=/api/user/**
         - id: web-all
           uri: lb://web-all
           predicates: # 断言  ----> 判断语言

@@ -20,8 +20,8 @@ public class SkuDetailController {
     @GetMapping(value = "/item/{skuId}")
     public Result<SkuDetailVo> item(@PathVariable(value = "skuId")Long skuId) {
         SkuDetailVo skuDetailVo = skuDetailBizService.item(skuId) ;
+        skuDetailBizService.updateHotScore(skuId);
         return Result.build(skuDetailVo , ResultCodeEnum.SUCCESS) ;
     }
-
 
 }

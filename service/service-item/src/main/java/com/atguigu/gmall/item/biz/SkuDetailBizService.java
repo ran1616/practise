@@ -5,4 +5,6 @@ import com.atguigu.gmall.product.vo.SkuDetailVo;
 public interface SkuDetailBizService {
 
     public abstract SkuDetailVo item(Long skuId);
+
+    public abstract void updateHotScore(Long skuId) ;
 }

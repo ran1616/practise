@@ -16,11 +16,15 @@ feign:
   client:
     config:
       default:
-        connectTimeout: 1000
-        readTimeout: 1000
+        connectTimeout: 2000
+        readTimeout: 2000
   sentinel:
     enabled: true
 
 logging:
   file:
     name: D://logs/web-all/info.log
+ribbon:
+  eager-load:
+    enabled: true   # 开启ribbon的饥饿加载
+    clients: service-search,service-product,service-item

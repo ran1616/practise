@@ -11,7 +11,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @EnableFeignClients(basePackages = {
-        "com.atguigu.gmall.common.feign.product"
+        "com.atguigu.gmall.common.feign.product" ,
+        "com.atguigu.gmall.common.feign.seach"
 })
 @EnableRedissonClient
 @EnableThreadPool

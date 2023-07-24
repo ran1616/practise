@@ -34,4 +34,10 @@ public class GoodsRpcController {
         return Result.build(searchResponseVo , ResultCodeEnum.SUCCESS)  ;
     }
 
+    @PutMapping(value = "/updateHotScore/{skuId}/{hotScore}")
+    public Result updateHotScore(@PathVariable(value = "skuId") Long skuId , @PathVariable(value = "hotScore")Long hotScore) {
+        goodsBizService.updateHotScore(skuId , hotScore) ;
+        return Result.ok() ;
+    }
+
 }
