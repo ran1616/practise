@@ -18,7 +18,7 @@ public class MinioTest {
         // 创建MinioClient对象
         MinioClient minioClient =
                 MinioClient.builder()
-                        .endpoint("http://192.168.136.145:9000")
+                        .endpoint("http://192.168.100.50:9000")
                         .credentials("admin", "admin123456")
                         .build();
 
@@ -39,7 +39,7 @@ public class MinioTest {
         minioClient.putObject(putObjectArgs) ;
 
         // 访问文件路径
-        String imageUrl = "http://192.168.136.145:9000/gmall/a.jpg" ;
+        String imageUrl = "http://192.168.100.50:9000/gmall/a.jpg" ;
         System.out.println(imageUrl);
 
 

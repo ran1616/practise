@@ -11,10 +11,13 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.sql.Time;
 import java.util.Arrays;
 import java.util.Random;
@@ -25,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 @RestController
-@RequestMapping(value = "/hello")
+@RequestMapping(value = "/order")
 @Slf4j
 public class HelloController {
 
@@ -58,7 +61,9 @@ public class HelloController {
     }
 
     @GetMapping(value = "/read")
-    public Result read() throws InterruptedException {
+    public Result read(@RequestHeader(value = "userId") String userId) throws InterruptedException {
+        log.info("userId: {}" , userId);
+
         RReadWriteLock readWriteLock = redissonClient.getReadWriteLock("read-write-lock");
         RLock readLock = readWriteLock.readLock();
         readLock.lock();

@@ -3,7 +3,6 @@ package com.atguigu.gmall.product;
 import com.atguigu.gmall.common.anno.EnableMinioClient;
 import com.atguigu.gmall.common.anno.EnableSwagger2Configuration;
 import com.atguigu.gmall.common.cache.anno.EnableRedissonClient;
-import com.atguigu.gmall.common.config.MinioConfiguration;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,10 +20,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableFeignClients(basePackages = {
         "com.atguigu.gmall.common.feign.seach"
 })
-public class ProductApplicaiton {
+public class ProductApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProductApplicaiton.class , args) ;
+        SpringApplication.run(ProductApplication.class , args) ;
     }
 
 }

@@ -7,21 +7,21 @@ spring:
       master:
         type: com.zaxxer.hikari.HikariDataSource
         driverClassName: com.mysql.jdbc.Driver
-        jdbcUrl: jdbc:mysql://192.168.136.145:3306/gmall_product?useSSL=false&characterEncoding=UTF8
+        jdbcUrl: jdbc:mysql://192.168.100.50:3306/gmall_product?useSSL=false&characterEncoding=UTF8
         username: root
-        password: 1234
+        password: 123456
       slave01:
         type: com.zaxxer.hikari.HikariDataSource
         driverClassName: com.mysql.jdbc.Driver
-        jdbcUrl: jdbc:mysql://192.168.136.145:3307/gmall_product?useSSL=false&characterEncoding=UTF8
+        jdbcUrl: jdbc:mysql://192.168.100.50:3307/gmall_product?useSSL=false&characterEncoding=UTF8
         username: root
-        password: 1234
+        password: 123456
       slave02:
         type: com.zaxxer.hikari.HikariDataSource
         driverClassName: com.mysql.jdbc.Driver
-        jdbcUrl: jdbc:mysql://192.168.136.145:3308/gmall_product?useSSL=false&characterEncoding=UTF8
+        jdbcUrl: jdbc:mysql://192.168.100.50:3308/gmall_product?useSSL=false&characterEncoding=UTF8
         username: root
-        password: 1234
+        password: 123456
     rules:   # 2、读写分离的配置
       readwrite-splitting:
         data-sources:

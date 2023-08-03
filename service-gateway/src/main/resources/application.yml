@@ -17,12 +17,31 @@ spring:
         - id: service-item
           uri: lb://service-item
           predicates: # 断言  ----> 判断语言
-            - Path=/hello/count
+            - Path=/order/read
         - id: service-user
           uri: lb://service-user
           predicates: # 断言  ----> 判断语言
             - Path=/api/user/**
+        - id: service-cart
+          uri: lb://service-cart
+          predicates: # 断言  ----> 判断语言
+            - Path=/api/cart/**
         - id: web-all
           uri: lb://web-all
           predicates: # 断言  ----> 判断语言
             - Host=**.gmall.com,gmall.com
+  redis:
+    host: 192.168.100.50
+    port: 6379
+    password: 123456
+
+# 配置资源的访问路径规则
+gmall:
+  auth:
+    noauthurls:
+      - /css/**
+      - /js/**
+      - /img/**
+    authurls:
+      - /**/auth/**
+    toLoginPage: http://passport.gmall.com/login.html

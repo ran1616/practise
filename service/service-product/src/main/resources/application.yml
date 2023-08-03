@@ -7,15 +7,15 @@ spring:
   profiles:
     include: shardingsphere
   redis:
-    host: 192.168.136.145
+    host: 192.168.100.50
     port: 6379
-    password: 1234
+    password: 123456
 #  datasource:
 #    type: com.zaxxer.hikari.HikariDataSource
-#    url: jdbc:mysql://192.168.136.145:3306/gmall_product?useSSL=false&characterEncoding=UTF8
+#    url: jdbc:mysql://192.168.100.50:3306/gmall_product?useSSL=false&characterEncoding=UTF8
 #    driver-class-name: com.mysql.jdbc.Driver
 #    username: root
-#    password: 1234
+#    password: 123456
 
 # 配置Redis的连接信息
 
@@ -30,7 +30,7 @@ mybatis-plus:
 # 定义minio所需要的配置信息
 gmall:
   minio:
-    endpoint: http://192.168.136.145:9000
+    endpoint: http://192.168.100.50:9000
     accessKey: admin
     secretKey: admin123456
     bucket: gmall

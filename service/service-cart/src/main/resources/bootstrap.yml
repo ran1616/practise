@@ -1,0 +1,10 @@
+# 配置服务名称
+spring:
+  application:
+    name: service-cart
+  cloud:
+    nacos:
+      server-addr: 192.168.100.50:8848
+      config:
+        shared-configs:
+          - common.yml

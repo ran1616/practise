@@ -6,15 +6,15 @@ server:
 spring:
   # 配置Redis的连接信息
   redis:
-    host: 192.168.136.145
+    host: 192.168.100.50
     port: 6379
-    password: 1234
+    password: 123456
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://192.168.136.145:3306/gmall_user?useSSL=false&characterEncoding=UTF8
+    url: jdbc:mysql://192.168.100.50:3306/gmall_user?useSSL=false&characterEncoding=UTF8
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: 1234
+    password: 123456
 
 # mybatis plus的相关配置
 mybatis-plus:

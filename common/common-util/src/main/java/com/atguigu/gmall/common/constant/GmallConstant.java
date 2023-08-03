@@ -42,4 +42,10 @@ public interface GmallConstant {
      */
     public static final String REDIS_USER_LOGIN_PRE = "user-login-token:" ;
 
+
+    /**
+     * 存储到Redis中的购物车数据key
+     */
+    public static final String REDIS_CART_PRE = "cart:" ;
+
 }
